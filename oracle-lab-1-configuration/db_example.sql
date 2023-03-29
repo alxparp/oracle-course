@@ -2,33 +2,33 @@ drop table Emp CASCADE CONSTRAINTS;
 drop table Dept CASCADE CONSTRAINTS;
 drop table Salgrade CASCADE CONSTRAINTS;
 
-CREATE TABLE Dept(  -- описание подразделения
-   deptno NUMERIC(2) NOT NuLL,  -- N подразделения
-   dname VARCHAR(15) NOT NULL,  -- название подразделения
-   loc VARCHAR(15) NOT NULL, -- местоположение подразделения
+CREATE TABLE Dept(  -- division description
+   deptno NUMERIC(2) NOT NuLL,  -- N division
+   dname VARCHAR(15) NOT NULL,  -- name of division
+   loc VARCHAR(15) NOT NULL, -- division location
    CONSTRAINT dept_pk 
-          PRIMARY KEY (deptno), -- колонка является первичным ключом 
+          PRIMARY KEY (deptno), -- column is the primary key 
    CONSTRAINT dept_name_uk 
-          UNIQUE (dname) -- колонка содержит неповторяющиеся значения
+          UNIQUE (dname) -- column contains non-repeating values
 );
 
-CREATE TABLE Emp( -- описание сотрудников подразделений
-  empno NUMERIC(4) PRIMARY KEY, -- N сотрудника
-  ename VARCHAR(10) NOT NULL, -- имя сотрудника
-  job VARCHAR(10) NOT NULL, -- должность сотрудника
-  mgr NUMERIC(4), -- N начальника сотрудника
-  hiredate DATE NOT NULL, -- дата приема на работу сотрудника 
-  sal FLOAT NOT NULL, -- з/п сотрудника
-  comm FLOAT, -- премия сотрудника
-  deptno NUMERIC(2),  -- N подразделения, где работает сотрудник
+CREATE TABLE Emp( -- description of department employees
+  empno NUMERIC(4) PRIMARY KEY, -- N employee
+  ename VARCHAR(10) NOT NULL, -- employee name
+  job VARCHAR(10) NOT NULL, -- employee position
+  mgr NUMERIC(4), -- N manager of employee
+  hiredate DATE NOT NULL, -- hiredate  
+  sal FLOAT NOT NULL, -- employee salary
+  comm FLOAT, -- employee commission
+  deptno NUMERIC(2),  -- N department, where employee works
   FOREIGN KEY (deptno) 
-          REFERENCES Dept (deptno) -- колонка является внешним ключом
+          REFERENCES Dept (deptno) -- column is a foreign key
 );
 
-CREATE TABLE Salgrade( -- описание диапазона з/п для различных групп сотрудников
-  grade NUMERIC(1) NOT NULL,  -- N группы сотрудников
-  minsal FLOAT NOT NULL, -- min з/п
-  hisal FLOAT NOT NULL,  -- max з/п
+CREATE TABLE Salgrade( -- description of the salary range for various groups of employees
+  grade NUMERIC(1) NOT NULL,  -- N groups of employees
+  minsal FLOAT NOT NULL, -- min salary
+  hisal FLOAT NOT NULL,  -- max salary
   CONSTRAINT salgrade_pk PRIMARY KEY (grade)
 );
 
