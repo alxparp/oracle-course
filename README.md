@@ -1,6 +1,6 @@
 # oracle-course
 
-Welcome to the repository for my Oracle Databases course homework! In this repository, you will find a collection of assignments, code examples, and resources related to various topics covered in the course. This README will provide you with an overview of the contents and how to navigate the repository effectively.
+Welcome to the repository for my Oracle Databases course homework! In this repository, you will find a collection of assignments, code examples, and resources related to various topics covered in the course.
 
 ## Topics Covered
 
